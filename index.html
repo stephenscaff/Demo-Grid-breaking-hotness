@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<head>
+
+<!-- Title and Meta
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<title>Fluid Relations</title>
+<meta name="author" content="Stephen Scaff">
+
+<link href='http://fonts.googleapis.com/css?family=Noto+Serif|Montserrat:700' rel='stylesheet' type='text/css'>
+<!-- Mobile Specific Meta
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale = 1, maximum-scale=1, user-scalable=no" />
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="css/app.css">
+
+</head>
+
+<!-- Main
+================================================== -->	
+<main role="main">
+
+<!-- Banner
+================================================== -->	
+<section class="sect-banner">
+  <div>
+    <h1>We Be Grid Breaking</h1>
+    <p>A slick grid-breaking pattern with no extra markup using viewport units and a negetive margin</p>
+  </div>
+</section>
+
+<!-- Content
+================================================== -->	
+<section class="sect-content">
+	<div class="row">
+
+ 	<p>Generally, if you have a container, and then you'd like to rock a 100% full-width (viewport) image, some markup would be required to make it happen. You'd have to close the container, add your 100% image, then reopen the container. Rinse repeat for each instance.</p>
+    
+  <p>That's all well and good, but this becomes a bit of an issue when creating blog post templates and layouts in CMS's like Wordpress. Sure, you can write some custom functions to wrap images with the required markup, but honestly, that's a pain in the ass. Especially if you only want some images to go full-width.</p>
+
+  <p>Of course, you could also write some kind of js solution to calculate the required distances, then recalc on resize... but that's also kinda grimey.</p>
+
+  <p>No worries playas... There's a better way - with no extra markup, no php funcitons, no js retardery.</p>
+  
+  <h3>Hello Viewport Units</h3>  
+  <p>With viewport units, namely viewport width (vw), and a single negitive margin declaration, you can create this full-width grid breaking pattern with just a few lines of painless css.</p>
+
+  <h3>The Run Down</h3>
+
+  <p>So let's say your container is 60% in width. That leaves 40%, or 20% on each side of the centered container. Now, just apply a width and max-width of 100vw to your grid breaking element, with a margin-left of 20vw to account for the 20% outside the container. Boom. We're done son! That's it. </p>
+        
+<code class="code-block"><pre>
+/*-------------------------------------   
+--Row/Container
+---------------------------------------*/    
+.row{  
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media (min-width: $mq-small) {
+    max-width:	80%;
+  }
+ 	@media (min-width: $mq-large) {
+   	max-width: 60%
+ 	}
+}
+/*-------------------------------------   
+--Grid Breaker
+---------------------------------------*/
+.gridbreak{
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: -5vw;
+  @media (min-width: $mq-small) {
+    margin-left: -10vw;
+  }
+  @media (min-width: $mq-large) {
+    margin-left: -20vw;
+  }  
+}
+</pre></code>  
+        
+
+	<h3>Pretty Sweet</h3>       
+	<p>I know right? No weird hacks, no overflows to hide. No custom php functions in your CMS. No custom Wordpress QTags stuffs. No JS nonesense. Just a nice grid-breaking, full-width image.</p> 
+
+	<p>Just check these full-width mfers out right here ya'll:</p>
+    
+<figure class="gridbreak"><img src="images/img-2.jpg"></figure>
+<figure class="gridbreak"><img src="images/img-3.jpg"></figure>
+
+<p>Pretty dope right? I'm sayin. And it works nicely on Chrome, FF, and Safari. Haven't checked IE yet, but if VW is supported, you should be all good in the hood baby.</p>
+
+<h3>Media Query Hotness</h3>
+	<p>Of course, your container is gonna increase/decrease width as you resize. So, just make sure to use the same simple-ass maths at each breakpoint.</p>
+
+<h3>One more time baby</h3> 
+
+	<p>Oh for sure:</p>
+<figure class="gridbreak"><img src="images/img-4.jpg"></figure>
+<figure class="gridbreak"><img src="images/img-5.jpg"></figure>
+
+
+</div>
+</section>
+</main>
+
+<!-- Footer
+================================================== -->	
+<footer>
+	<div class="row">
+		<p>A Little Thing by <a href="http://twitter.com/stephenscaff">Stephen Scaff</a></p>
+	</div>
+</footer>
+
+</body>
+</html>
+

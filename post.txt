@@ -1,0 +1,107 @@
+New Grid-Breaking Hotness
+
+A markup free grid-breaking pattern using vewport units and negitive margins.
+
+
+Generally, if you have a container, and then you'd like to rock a 100% full-width (viewport) image, some markup would be required to make it happen. You'd have to close the container, add your 100% image, then reopen the container. Rinse repeat for each instance.
+
+That's all well and good, but this becomes a bit of an issue when creating blog post templates and layouts in CMS's like Wordpress. Sure, you can write some custom functions to wrap images with the required markup, but honestly, that's a pain in the ass. Especially if you only want some images to go full-width.
+
+Of course, you could also write some kind of js solution to calculate the required distances, then recalc on resize... but that's also kinda grimey.
+
+No worries playas... There's a better way - with no extra markup, no php funcitons, no js retardery. 
+
+Hello Viewport Units
+
+With viewport units, namely viewport width (vw), and a single negitive margin decleration, you can create this full-width grid breaking pattern with just a few lines of painless css.
+
+The Run Down
+
+So let's say your container is 60% in width. That leaves 40%, or 20% on each side of the centered container. Now, just apply a width and max-width of 100vw to your grid breaking element, with a margin-left of 20vw to account for the 20% outside the container. Boom. We're done son! That's it.
+
+/*-------------------------------------   
+--Row/Container
+---------------------------------------*/    
+.row{  
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media (min-width: $mq-small) {
+    max-width: 80%;
+  }
+  @media (min-width: $mq-large) {
+    max-width: 60%
+  }
+}
+/*-------------------------------------   
+--Grid Breaker
+---------------------------------------*/
+.gridbreak{
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: -5vw;
+  @media (min-width: $mq-small) {
+    margin-left: -10vw;
+  }
+  @media (min-width: $mq-large) {
+    margin-left: -20vw;
+  }  
+}
+
+Pretty Sweet
+
+I know right? No weird hacks, no overflows to hide. No custom php functions in your CMS. No custom Wordpress QTags stuffs. No JS nonesense. Just a nice grid-breaking, full-width image. 
+
+
+Hey, but my container changes width at breakpoints?
+
+Calm down dude. Of course it does. Your site would look pretty gross if it didn't. 
+But again, no worries. Just rock a few media querys to recalculate the required negetive margin. This is where SCSS variables and media query bubbling shines on like a cuddle fish
+
+/*-------------------------------------   
+--Row/Container
+---------------------------------------*/    
+.row{  
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media (min-width: $mq-small) {
+    max-width: 80%;
+  }
+  @media (min-width: $mq-large) {
+    max-width: 60%
+  }
+}
+/*-------------------------------------   
+--Grid Breaker
+---------------------------------------*/
+.gridbreak{
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: -5vw;
+  @media (min-width: $mq-small) {
+    margin-left: -10vw;
+  }
+  @media (min-width: $mq-large) {
+    margin-left: -20vw;
+  }  
+}
+
+
+
+Just check these full-width mfers out right here ya'll:
+
+
+
+Pretty dope right? I'm sayin. And it works nicely on Chrome, FF, and Safari. Haven't checked IE yet, but if VW is supported, you should be all good in the hood baby.
+
+Media Query Hotness
+
+Of course, your container is gonna increase/decrease width as you resize. So, just make sure to use the same simple-ass maths at each breakpoint. Check the CSS tab if I'm not splain' it well.
+
+One more time baby
+
+
+A Little Thing by Stephen Scaff

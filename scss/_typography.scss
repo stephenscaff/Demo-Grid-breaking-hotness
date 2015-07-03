@@ -1,0 +1,91 @@
+
+/*----------------------------------------------   
+--Typography: Body
+-----------------------------------------------  */
+body {
+  font-family: $font-paragraph;
+  color: #444;
+  position: relative;
+  width: 100%;
+  font-weight: 400;
+  font-style: normal;
+  line-height: $base-lineheight;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;  
+}
+
+/*----------------------------------------------   
+--Typography: Fluid body sizing hotness
+* Adjust to suit your needs.
+-----------------------------------------------  */
+body {
+font-size: 100%;
+  
+  @media (min-width: $mq-small) {
+    font-size: 110%
+  }
+  @media (min-width: $mq-med) {
+    font-size: 120%
+  }
+  @media (min-width: $mq-large) {
+    font-size: 130%
+  }
+  @media (min-width: $mq-xlarge) {
+    font-size: 160%
+  }
+  @media (min-width: $mq-xxlarge) {
+    font-size: 170%
+  }
+  @media (min-width: $mq-xxxlarge) {
+    font-size: 180%
+  }
+}
+
+/*----------------------------------------------   
+--Typography: Headers
+-----------------------------------------------  */
+h1,h2,h3{
+  font-weight: 700;
+  font-family: $font-header;
+  text-rendering:optimizeLegibility; 
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1.2em;
+  margin-top: 0.8em;
+  margin-bottom: 0.4em;
+  
+  @media (min-width: $mq-med) {
+    font-size: 7vmax;
+  }  
+}
+h2 {
+  font-size: 2.6em;
+  line-height: 1.3em;
+  margin-top: 1.3em;
+  margin-bottom: 0.6em;
+}
+h3 {
+  font-size: 2.1em;
+  line-height: 1em;
+  margin-top: 1em;
+  margin-bottom: 0.7em;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.75em;
+  font-family: $font-paragraph;
+  line-height: $base-lineheight;
+}
+p:first-child{
+  font-size: 140%;
+  line-height: 1.8;
+  margin-top: 1.7em;
+}
+
+
